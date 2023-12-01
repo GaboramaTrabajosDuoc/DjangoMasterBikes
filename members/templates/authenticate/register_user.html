@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Master Bikes</title> 
+  <meta charset="utf-8">
+
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <!-- Bootstrap CSS -->
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</head> 
+<body>
+ 
+
+<div class="container" >
+
+  <div class="row">
+    
+    <div class="col-sm-12" style="background-color:rgb(253, 253, 253) ;" id="barra-central">
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light  " id="navaruwu">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+      </button>
+            
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+        <div class="dropdown"> 
+            <button class="dropbtn">Menu</button> 
+            <div class="dropdown-content"> 
+                <a href="{% url 'index' %}">Inicio</a> 
+                <a href="{% url 'prod' %}">Productos</a> 
+                <a href="{% url 'arriendobicis' %}">Arriendo De bicicletas</a> 
+                <a href="{% url 'repa' %}">Servicios de Reparacion</a> 
+                <a href="{% url 'us' %}">Nosotros</a> 
+                <a href="{% url 'login' %}">Iniciar sesion</a> 
+
+            </div> 
+          </div> 
+ 
+      </div>
+    </nav>
+{% block content %}
+
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            hubo un error
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+
+
+{% endif %}	
+
+	<div class="shadow p-4 mb-5 bg-body rounded">
+	<h1>Register</h1>
+<br/>
+
+
+		<form action="{% url 'register_user' %}" method=POST>
+			{% csrf_token %}
+
+			{{ form.as_p }}
+
+  
+
+
+			
+			<br/><br/>
+			<input type="submit" value="Crear cuenta" class="btn btn-secondary">
+
+		</form>
+
+	
+		  <!-- Messages -->
+		  <div class="container">
+			{% if messages %}
+			  {% for message in messages %}
+				
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				  {{ message }}
+				</div>
+				{% endfor %}
+				{% endif %}
+		
+</div>
+<br/><br/>	
+{% endblock %}
