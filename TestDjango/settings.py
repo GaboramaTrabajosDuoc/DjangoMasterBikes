@@ -77,7 +77,7 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'MasterBikesDb',
+        'NAME': 'masterbikesdb',
         'USER': 'root',
         'PASSWORD': 'ikeasusig2228',
         'HOST': 'localhost',
