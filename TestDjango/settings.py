@@ -88,6 +88,8 @@ DATABASES = {
     }
 }
 
+ALLOWED_HOSTS = ['MasterBikesDemo.herokuapp.com']
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
